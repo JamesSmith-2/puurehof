@@ -1166,3 +1166,56 @@ body.modal-open {
     display: none;
   }
 }
+
+/* Catalog-inspired browsing, with Puurehof's garden-to-table palette. */
+.header { display: block; max-width: none; padding: 0; background: var(--paper); }
+.header-main { max-width: 1440px; margin: auto; padding: 28px 5%; display: flex; align-items: center; gap: 45px; }
+.header-main .wordmark { flex-shrink: 0; }
+.header-main .header-link { display: block; white-space: nowrap; }
+.site-search { position: relative; max-width: 560px; flex: 1; margin: 0 auto; }
+.search-label { display: block; font-size: 10px; letter-spacing: 1px; margin-bottom: 6px; }
+.site-search input { width: 100%; min-width: 0; border: 1px solid #b9c1ac; border-radius: 0; background: white; color: var(--ink); padding: 13px 16px; font: inherit; }
+.site-search input:focus-visible { outline: 3px solid #a57536; outline-offset: 2px; }
+.search-results { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 12px 30px #293d3026; padding: 16px; border: 1px solid var(--line); z-index: 30; }
+.search-results a { display: block; padding: 10px; }
+.search-results a:hover { background: var(--sage); }
+.header nav { position: relative; display: flex; flex-direction: row; justify-content: center; align-items: stretch; width: 100%; gap: 0; padding: 0 5%; background: var(--green); color: white; font-size: 13px; }
+.header nav > a, .nav-dropdown summary { padding: 17px 26px; font-weight: 600; }
+.header nav > a:hover, .nav-dropdown[open] summary { color: var(--ink); background: var(--accent); }
+.nav-dropdown { position: static; }
+.mega-menu { top: 100%; left: 5%; right: 5%; width: auto; max-width: 1296px; margin: auto; padding: 30px; color: var(--ink); display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; background: var(--paper); }
+.menu-column > p { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; border-bottom: 1px solid var(--line); padding: 0 12px 12px; margin-bottom: 6px; }
+.menu-column:last-child { background: var(--sage); padding: 16px; }
+.discovery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.discovery-card { border: 1px solid var(--line); background: #fffdf8; }
+.discovery-card > a { display: block; height: 200px; overflow: hidden; }
+.discovery-card img { transition: transform .25s; }
+.discovery-card > a:hover img { transform: scale(1.04); }
+.discovery-card > div { padding: 28px; }
+.discovery-card .eyebrow { margin-bottom: 14px; }
+.discovery-card h3 { font-size: 34px; margin-bottom: 16px; }
+.discovery-card p:not(.eyebrow) { color: var(--muted); margin-bottom: 22px; }
+.discovery-card .text-link { display: table; margin-top: 14px; }
+.discovery-plan { background: var(--sage); display: flex; align-items: center; }
+@media (max-width: 900px) {
+  .header-main { gap: 24px; }
+  .header-main .header-link { display: none; }
+  .header nav > a, .nav-dropdown summary { padding: 16px; }
+  .discovery-grid { gap: 14px; }
+  .discovery-card > div { padding: 20px; }
+}
+@media (max-width: 700px) {
+  .header-main { padding: 22px 6%; flex-wrap: wrap; justify-content: space-between; gap: 22px; }
+  .site-search { order: 3; flex-basis: 100%; max-width: none; }
+  .header nav { display: none; flex-direction: column; padding: 0 6% 16px; }
+  .header nav.is-open { display: flex; }
+  .nav-dropdown { border-color: #ffffff38; }
+  .nav-dropdown summary { padding: 15px 0; }
+  .header nav > a { border-color: #ffffff38; padding: 15px 0; }
+  .mega-menu { position: static; display: grid; grid-template-columns: 1fr; padding: 20px; gap: 24px; }
+  .header nav .nav-submenu a { color: var(--ink); }
+  .discovery-grid { grid-template-columns: 1fr; gap: 24px; }
+  .discovery-card > a { height: 240px; }
+}
+@media (prefers-reduced-motion: reduce) { .discovery-card img { transition: none; } }
+@media print { .header { display: none; } }

@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#344b38" />
     <meta
       name="description"
-      content="A kitchen garden, one bed at a time. — a sample from Puurehof Haus, Alaina's garden-to-table lifestyle concept."
+      content="A kitchen garden, one bed at a time. — a sample from Puurehof, Alaina's garden-to-table lifestyle concept."
     />
-    <title>A kitchen garden, one bed at a time. — Puurehof Haus</title>
+    <title>A kitchen garden, one bed at a time. — Puurehof</title>
     <link rel="stylesheet" href="css/Puurehof.css" />
     <script src="js/Puurehof.js" defer></script>
   </head>
@@ -17,50 +17,19 @@
       A SEASON FOR GROWING <span>—</span> Good things begin at home.
     </div>
     <header class="header">
-      <a class="wordmark" href="index.html" aria-label="Puurehof Haus home"
-        >Puurehof<span>HAUS</span><small>GARDEN · TABLE · EVERYDAY</small></a
-      >
-      <button
-        class="menu-toggle"
-        aria-expanded="false"
-        aria-controls="navigation"
-      >
-        Menu <span>☰</span>
-      </button>
+      <div class="header-main">
+        <a class="wordmark" href="index.html" aria-label="Puurehof home">Puurehof<small>GARDEN · TABLE · EVERYDAY</small></a>
+        <div class="site-search"><label class="search-label" for="site-search">Find something to grow or make</label><input id="site-search" type="search" placeholder="Search plants, recipes &amp; guides" aria-controls="search-results" autocomplete="off" /><div id="search-results" class="search-results" hidden aria-live="polite"></div></div>
+        <a class="header-link" href="index.html#about">Meet Alaina <span>↗</span></a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button>
+      </div>
       <nav id="navigation" aria-label="Main navigation">
-        <details class="nav-dropdown">
-          <summary>Recipes <span aria-hidden="true">⌄</span></summary>
-          <div class="nav-submenu">
-            <a href="index.html#table">All recipes</a>
-            <a href="recipes/tomato-toast.html">Garden tomato &amp; herb toast</a>
-            <a href="recipes/herb-butter.html">Lemon &amp; garden herb butter</a>
-            <a href="recipes/green-salad.html">Just-picked green salad</a>
-          </div>
-        </details>
-        <details class="nav-dropdown">
-          <summary>Growing guides <span aria-hidden="true">⌄</span></summary>
-          <div class="nav-submenu">
-            <a href="index.html#garden">All growing guides</a>
-            <a href="plant-care/kitchen-garden.html">Your first kitchen garden</a>
-            <a href="plant-care/basil.html">Basil, from pot to pesto</a>
-            <a href="plant-care/tomatoes.html">A good start for tomatoes</a>
-          </div>
-        </details>
-        <details class="nav-dropdown">
-          <summary>Projects <span aria-hidden="true">⌄</span></summary>
-          <div class="nav-submenu">
-            <a href="index.html#journal">Project journal</a>
-            <a href="current-project.html"
-              >A kitchen garden, one bed at a time</a
-            >
-            <a href="upcoming-project.html">Making room for the next season</a>
-          </div>
-        </details>
-        <a href="index.html#favorites">Alaina's favorites</a>
+        <details class="nav-dropdown"><summary>Plants & growing <span aria-hidden="true">⌄</span></summary><div class="nav-submenu mega-menu"><div class="menu-column"><p>Explore plants</p><a href="plant-care/tomatoes.html">Tomatoes</a><a href="plant-care/basil.html">Basil & herbs</a></div><div class="menu-column"><p>Find your beginning</p><a href="plant-care/kitchen-garden.html">Start a kitchen garden</a><a href="plant-care/basil.html">Grow in a pot</a><a href="index.html#garden">All growing guides</a></div><div class="menu-column"><p>From garden to table</p><a href="recipes/tomato-toast.html">Put your tomatoes to work</a><a href="recipes/herb-butter.html">Make the most of fresh herbs</a></div></div></details>
+        <details class="nav-dropdown"><summary>Recipes <span aria-hidden="true">⌄</span></summary><div class="nav-submenu mega-menu"><div class="menu-column"><p>Fresh from the garden</p><a href="recipes/tomato-toast.html">Garden tomato & herb toast</a><a href="recipes/green-salad.html">Just-picked green salad</a></div><div class="menu-column"><p>Simple things to make</p><a href="recipes/herb-butter.html">Lemon & garden herb butter</a><a href="index.html#table">All recipes</a></div><div class="menu-column"><p>Grow your ingredients</p><a href="plant-care/tomatoes.html">Get started with tomatoes</a><a href="plant-care/basil.html">Care for your basil</a></div></div></details>
+        <details class="nav-dropdown"><summary>Learn & plan <span aria-hidden="true">⌄</span></summary><div class="nav-submenu mega-menu"><div class="menu-column"><p>Growing library</p><a href="plant-care/kitchen-garden.html">Your first kitchen garden</a><a href="plant-care/tomatoes.html">Tomato growing guide</a><a href="plant-care/basil.html">Basil growing guide</a></div><div class="menu-column"><p>Project journal</p><a href="current-project.html" aria-current="page">A kitchen garden, one bed at a time</a><a href="upcoming-project.html">Plan the next season</a></div><div class="menu-column"><p>More inspiration</p><a href="index.html#watch">Watch & grow</a><a href="index.html#favorites">Alaina's favorites</a></div></div></details>
+        <a href="index.html#journal">Projects</a>
+        <a href="index.html#about">Our story</a>
       </nav>
-      <a class="header-link" href="index.html#watch"
-        >Watch & grow <span>↗</span></a
-      >
     </header>
     <main id="main-content" class="article-page">
       <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -71,11 +40,11 @@
         <header class="article-heading">
           <p class="eyebrow">PROJECT JOURNAL · SAMPLE EDITORIAL</p>
           <h1>A kitchen garden, one bed at a time.</h1>
-          <p class="article-byline">Puurehof Haus · Concept preview</p>
+          <p class="article-byline">Puurehof · Concept preview</p>
         </header>
         <div class="article-body">
           <p>
-            This sample story imagines the first chapter of Puurehof Haus. Alaina's
+            This sample story imagines the first chapter of Puurehof. Alaina's
             actual project details will take its place before launch.
           </p>
           <h3>Begin with the kitchen</h3>
@@ -104,7 +73,7 @@
           </button>
         </div>
       </article>
-      <aside class="related-stories" aria-label="More from Puurehof Haus">
+      <aside class="related-stories" aria-label="More from Puurehof">
         <p class="eyebrow">KEEP EXPLORING</p>
         <h2>A little more inspiration.</h2>
         <div>
@@ -123,7 +92,7 @@
       </aside>
     </main>
     <footer>
-      <a class="footer-logo" href="index.html">Puurehof HAUS</a>
+      <a class="footer-logo" href="index.html">Puurehof</a>
       <p>A homegrown life, one season at a time.</p>
       <span>CONCEPT PREVIEW · SAMPLE CONTENT & PHOTOGRAPHY</span>
     </footer>

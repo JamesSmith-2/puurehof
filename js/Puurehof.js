@@ -47,3 +47,39 @@ if (menuButton && navigation) {
 document
   .querySelector('.print-button')
   ?.addEventListener('click', () => window.print());
+
+const search = document.querySelector('#site-search');
+const results = document.querySelector('#search-results');
+if (search && results && navigation) {
+  const seen = new Set();
+  const entries = [...navigation.querySelectorAll('a')].filter((link) => {
+    if (link.hash || seen.has(link.href)) return false;
+    seen.add(link.href);
+    return true;
+  });
+  search.addEventListener('input', () => {
+    const query = search.value.trim().toLowerCase();
+    results.replaceChildren();
+    results.hidden = !query;
+    if (!query) return;
+    const matches = entries.filter((link) =>
+      `${link.textContent} ${link.pathname}`.toLowerCase().includes(query),
+    );
+    matches.forEach((link) => {
+      const result = link.cloneNode(true);
+      result.removeAttribute('aria-current');
+      results.append(result);
+    });
+    if (!matches.length) results.textContent = 'No matches yet. Try tomatoes, basil, garden, or butter.';
+  });
+  search.addEventListener('focus', () => { results.hidden = !search.value.trim(); });
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.site-search')) results.hidden = true;
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !results.hidden) {
+      results.hidden = true;
+      search.focus();
+    }
+  });
+}
