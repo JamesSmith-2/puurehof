@@ -965,9 +965,13 @@ body.modal-open {
 .article-body p {
   margin: 20px 0;
 }
+.article-body h2,
 .article-body h3 {
   font-size: 33px;
   margin: 35px 0 15px;
+}
+.article-body h2 {
+  letter-spacing: normal;
 }
 .article-body li {
   padding-left: 5px;
@@ -1069,6 +1073,7 @@ body.modal-open {
     font-size: 11pt;
     line-height: 1.5;
   }
+  .article-body h2,
   .article-body h3 {
     font-size: 19pt;
     break-after: avoid;
