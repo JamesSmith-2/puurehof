@@ -1,0 +1,808 @@
+# Puurehof reusable block library
+
+Copy one block at a time into an HTML page. This file is a reference library,
+not a complete page. Each block uses the existing css/Puurehof.css styles.
+Load js/Puurehof.js for search, the mobile menu, and print behavior.
+
+## Placement
+- Announcement and site header: inside `<body>`, before `<main>`.
+- Homepage sections: inside `<main>`, in your preferred order.
+- Article layout: use as the page's `<main>`, instead of the homepage sections.
+- Footer: inside `<body>`, after `</main>`.
+- Dropdown: inside the header's `<nav>`, not inside another dropdown.
+
+## Customizing
+Change the visible text, images, image descriptions, and link destinations.
+These examples use paths for a page in the project root, such as index.html.
+For a page inside recipes/ or plant-care/, prefix local paths with ../.
+For example: recipes/green-salad.html becomes ../recipes/green-salad.html.
+On inner pages, change homepage links such as #garden to ../index.html#garden.
+Keep external https:// links as they are.
+
+Use the header and footer once per page. Give repeated sections unique IDs,
+and update matching aria-labelledby values and links to those IDs.
+Use one `<h1>` per page; change the hero heading to `<h2>` if it is not the page title.
+The examples include sample content. Replace it when creating your own section.
+Copying a block makes an independent copy; later edits do not update other pages.
+
+---
+
+## ANNOUNCEMENT
+
+Place before the site header.
+
+```html
+<div class="announcement">
+  A SEASON FOR GROWING
+  <span>—</span>
+  Good things begin at home.
+</div>
+```
+
+---
+
+## SITE HEADER
+
+Includes logo, search, mobile menu, and all dropdowns.
+
+```html
+<header class="header">
+  <div class="header-main">
+    <a class="wordmark" href="index.html" aria-label="Puurehof home">
+      Puurehof
+      <small>GARDEN · TABLE · EVERYDAY</small>
+    </a>
+    <div class="site-search">
+      <label class="search-label" for="site-search">
+        Find something to grow or make
+      </label>
+      <input
+        id="site-search"
+        type="search"
+        placeholder="Search plants, recipes &amp; guides"
+        aria-controls="search-results"
+        autocomplete="off"
+      />
+      <div
+        id="search-results"
+        class="search-results"
+        hidden
+        aria-live="polite"
+      ></div>
+    </div>
+    <a class="header-link" href="index.html#about">
+      Meet Alaina
+      <span>↗</span>
+    </a>
+    <button
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="navigation"
+    >
+      Menu
+      <span aria-hidden="true">☰</span>
+    </button>
+  </div>
+  
+
+  <nav id="navigation" aria-label="Main navigation">
+    
+
+    <details class="nav-dropdown">
+      <summary>
+        Plants & growing
+        <span aria-hidden="true">⌄</span>
+      </summary>
+      <div class="nav-submenu mega-menu">
+        <div class="menu-column">
+          <p>Explore plants</p>
+          <a href="plant-care/tomatoes.html">Tomatoes</a>
+          <a href="plant-care/basil.html">Basil & herbs</a>
+        </div>
+
+        <div class="menu-column">
+          <p>Find your beginning</p>
+          <a href="plant-care/kitchen-garden.html">Start a kitchen garden</a>
+          <a href="plant-care/basil.html">Grow in a pot</a>
+          <a href="index.html#garden">All growing guides</a>
+        </div>
+
+        <div class="menu-column">
+          <p>From garden to table</p>
+          <a href="recipes/tomato-toast.html">Put your tomatoes to work</a>
+          <a href="recipes/herb-butter.html">Make the most of fresh herbs</a>
+        </div>
+      </div>
+    </details>
+    
+
+    <details class="nav-dropdown">
+      <summary>
+        Recipes
+        <span aria-hidden="true">⌄</span>
+      </summary>
+      <div class="nav-submenu mega-menu">
+        <div class="menu-column">
+          <p>Fresh from the garden</p>
+          <a href="recipes/tomato-toast.html">Garden tomato & herb toast</a>
+          <a href="recipes/green-salad.html">Just-picked green salad</a>
+        </div>
+
+        <div class="menu-column">
+          <p>Simple things to make</p>
+          <a href="recipes/herb-butter.html">Lemon & garden herb butter</a>
+          <a href="index.html#table">All recipes</a>
+        </div>
+
+        <div class="menu-column">
+          <p>Grow your ingredients</p>
+          <a href="plant-care/tomatoes.html">Get started with tomatoes</a>
+          <a href="plant-care/basil.html">Care for your basil</a>
+        </div>
+      </div>
+    </details>
+    
+
+    <details class="nav-dropdown">
+      <summary>
+        Learn & plan
+        <span aria-hidden="true">⌄</span>
+      </summary>
+      <div class="nav-submenu mega-menu">
+        <div class="menu-column">
+          <p>Growing library</p>
+          <a href="plant-care/kitchen-garden.html">Your first kitchen garden</a>
+          <a href="plant-care/tomatoes.html">Tomato growing guide</a>
+          <a href="plant-care/basil.html">Basil growing guide</a>
+        </div>
+
+        <div class="menu-column">
+          <p>Project journal</p>
+          <a href="current-project.html">A kitchen garden, one bed at a time</a>
+          <a href="upcoming-project.html">Plan the next season</a>
+        </div>
+
+        <div class="menu-column">
+          <p>More inspiration</p>
+          <a href="index.html#watch">Watch & grow</a>
+          <a href="index.html#favorites">Alaina's favorites</a>
+        </div>
+      </div>
+    </details>
+
+    
+
+    <a href="index.html#journal">Projects</a>
+    <a href="index.html#about">Our story</a>
+  </nav>
+</header>
+```
+
+---
+
+## WELCOME / HERO
+
+Place inside `<main>`.
+
+```html
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow">ROOTED IN THE EVERYDAY</p>
+    <h1 id="hero-title">
+      A little closer
+      <br />
+      to the
+      <em>garden.</em>
+    </h1>
+    <p>
+      Something fresh on the table. Something growing by the door. A little more
+      beauty in the things we do every day.
+    </p>
+    <a class="button" href="#garden">
+      Let's grow something
+      <span>↗</span>
+    </a>
+    <div class="hero-note">
+      <span class="sun">✳</span>
+      A homegrown life, one season at a time.
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img
+      src="img/site/garden-hero.jpg"
+      alt="Sunlit potted plants and a gardener tending a leafy garden"
+      fetchpriority="high"
+    />
+    <div class="photo-label">
+      THE Puurehof WAY
+      <span>Grow. Gather. Make. Share.</span>
+    </div>
+    <span class="image-number">01 / THE GARDEN</span>
+  </div>
+</section>
+```
+
+---
+
+## DISCOVERY CARDS
+
+Place inside `<main>`.
+
+```html
+<section class="discovery section" aria-labelledby="discovery-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">FOLLOW SOMETHING GOOD</p>
+      <h2 id="discovery-title">Grow it. Make it.</h2>
+    </div>
+    <p>
+      Start with a plant. Find a little know-how.
+      <br />
+      Bring something fresh to the table.
+    </p>
+  </div>
+  <div class="discovery-grid">
+    <article class="discovery-card">
+      <a href="plant-care/tomatoes.html">
+        <img
+          src="img/plants/tomatoes.jpg"
+          alt="Fresh ripe tomatoes"
+          loading="lazy"
+        />
+      </a>
+      <div>
+        <p class="eyebrow">VEGETABLES</p>
+        <h3>A place for tomatoes.</h3>
+        <p>
+          Get to know the plant, then turn your harvest into a simple lunch.
+        </p>
+        <a class="text-link" href="plant-care/tomatoes.html">Grow tomatoes ↗</a>
+        <a class="text-link" href="recipes/tomato-toast.html">
+          Make garden tomato toast ↗
+        </a>
+      </div>
+    </article>
+    <article class="discovery-card">
+      <a href="plant-care/basil.html">
+        <img
+          src="img/plants/basil.jpg"
+          alt="Fresh green basil leaves"
+          loading="lazy"
+        />
+      </a>
+      <div>
+        <p class="eyebrow">HERBS & CONTAINERS</p>
+        <h3>Begin with a little basil.</h3>
+        <p>A pot by the door, a handful of leaves, a fresh idea for supper.</p>
+        <a class="text-link" href="plant-care/basil.html">Grow basil ↗</a>
+        <a class="text-link" href="recipes/herb-butter.html">
+          Make garden herb butter ↗
+        </a>
+      </div>
+    </article>
+    <article class="discovery-card discovery-plan">
+      <div>
+        <p class="eyebrow">YOUR NEXT SMALL BEGINNING</p>
+        <h3>Room for something growing.</h3>
+        <p>
+          Explore the kitchen garden guide and follow along as a garden takes
+          shape, one bed at a time.
+        </p>
+        <a class="text-link" href="plant-care/kitchen-garden.html">
+          Plan your kitchen garden ↗
+        </a>
+        <a class="text-link" href="current-project.html">
+          Follow the project ↗
+        </a>
+        <a class="text-link" href="upcoming-project.html">
+          Look to the next season ↗
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+```
+
+---
+
+## GROWING GUIDES
+
+Place inside `<main>`.
+
+```html
+<section class="section" id="garden">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">A LITTLE DIRT DOES WONDERS</p>
+      <h2>Good things take growing.</h2>
+    </div>
+    <span class="section-note">YOUR NEXT SMALL BEGINNING</span>
+  </div>
+  <div class="garden-grid">
+    <article class="feature-card">
+      <div class="image-wrap">
+        <img
+          src="img/plants/kitchen-garden.jpg"
+          alt="Raised vegetable beds filled with lush garden plants"
+          loading="lazy"
+        />
+        <span class="tag">START HERE</span>
+      </div>
+      <div class="card-meta">
+        THE GARDEN GUIDE
+        <span>8 MIN READ</span>
+      </div>
+      <h3>Your first kitchen garden</h3>
+      <p>
+        A sunny corner, a few good plants, and a plan you can actually stick to.
+      </p>
+      <a class="text-link" href="plant-care/kitchen-garden.html">
+        Dig into the guide
+        <span>↗</span>
+      </a>
+    </article>
+    <div class="small-guides">
+      <article class="guide-row">
+        <span class="guide-number">01</span>
+        <div>
+          <p class="eyebrow">HERB NOTES</p>
+          <h3>Basil, from pot to pesto</h3>
+          <p>Keep your favorite summer herb happy.</p>
+          <a class="text-link" href="plant-care/basil.html">
+            Get growing
+            <span>↗</span>
+          </a>
+        </div>
+        <span class="plant-icon" aria-hidden="true">♧</span>
+      </article>
+      <article class="guide-row">
+        <span class="guide-number">02</span>
+        <div>
+          <p class="eyebrow">GARDEN NOTES</p>
+          <h3>A good start for tomatoes</h3>
+          <p>Sunshine, steady watering, a little support.</p>
+          <a class="text-link" href="plant-care/tomatoes.html">
+            Get growing
+            <span>↗</span>
+          </a>
+        </div>
+        <span class="plant-icon" aria-hidden="true">☼</span>
+      </article>
+      <div class="garden-tip">
+        <span>ALAINA'S LITTLE REMINDER</span>
+        <p>
+          “You don't need a perfect garden.
+          <br />
+          Just a place to begin.”
+        </p>
+        <small>Sample brand copy</small>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+---
+
+## RECIPES
+
+Place inside `<main>`.
+
+```html
+<section class="table-section" id="table">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">FRESH FROM THE GARDEN</p>
+      <h2>Something lovely for the table.</h2>
+    </div>
+    <p>
+      Simple ingredients. Seasonal pleasures.
+      <br />
+      Recipes worth making again.
+    </p>
+  </div>
+  <div class="recipe-grid">
+    <article class="recipe-card">
+      <a
+        class="recipe-image"
+        href="recipes/tomato-toast.html"
+        aria-label="Read garden tomato toast recipe"
+      >
+        <img
+          src="img/recipes/tomato-toast.jpg"
+          alt="Rustic toast topped with fresh ingredients"
+          loading="lazy"
+        />
+        <span>VIEW RECIPE ↗</span>
+      </a>
+      <div class="card-meta">
+        THE EVERYDAY TABLE
+        <span>15 MIN</span>
+      </div>
+      <h3>
+        <a href="recipes/tomato-toast.html">Garden tomato & herb toast</a>
+      </h3>
+      <p>A very good reason to keep basil by the door.</p>
+    </article>
+    <article class="recipe-card">
+      <a
+        class="recipe-image"
+        href="recipes/herb-butter.html"
+        aria-label="Read lemon herb butter recipe"
+      >
+        <img
+          src="img/recipes/herb-butter.jpg"
+          alt="Fresh ingredients and herbs on a kitchen worktop"
+          loading="lazy"
+        />
+        <span>VIEW RECIPE ↗</span>
+      </a>
+      <div class="card-meta">
+        LITTLE KITCHEN LUXURIES
+        <span>10 MIN</span>
+      </div>
+      <h3>
+        <a href="recipes/herb-butter.html">Lemon & garden herb butter</a>
+      </h3>
+      <p>Turn a handful of herbs into something special.</p>
+    </article>
+    <article class="recipe-card">
+      <a
+        class="recipe-image"
+        href="recipes/green-salad.html"
+        aria-label="Read green salad recipe"
+      >
+        <img
+          src="img/recipes/green-salad.jpg"
+          alt="Colorful fresh vegetable salad in a bowl"
+          loading="lazy"
+        />
+        <span>VIEW RECIPE ↗</span>
+      </a>
+      <div class="card-meta">
+        GATHER & SHARE
+        <span>20 MIN</span>
+      </div>
+      <h3>
+        <a href="recipes/green-salad.html">The just-picked green salad</a>
+      </h3>
+      <p>A little crunch, a bright dressing, a fresh start.</p>
+    </article>
+  </div>
+</section>
+```
+
+---
+
+## ABOUT ALAINA
+
+Place inside `<main>`.
+
+```html
+<section class="about-section" id="about">
+  <div class="about-image">
+    <img
+      src="img/site/about-garden.jpg"
+      alt="A peaceful collection of plants and gardening pots"
+      loading="lazy"
+    />
+    <span>A NOTE FROM ALAINA</span>
+  </div>
+  <div class="about-copy">
+    <p class="eyebrow">WELCOME TO MY LITTLE CORNER</p>
+    <h2>
+      A home that grows
+      <br />
+      <em>along with you.</em>
+    </h2>
+    <p>
+      Puurehof is an idea for a life with more growing, more gathering, and more
+      joy in the everyday. A place to learn your garden's rhythms, try something
+      new in the kitchen, and make home feel a little more like you.
+    </p>
+    <p>Come for a recipe. Stay for the next little project.</p>
+    <span class="signature">Alaina</span>
+    <small>Introducing a new lifestyle concept · Sample welcome</small>
+  </div>
+</section>
+```
+
+---
+
+## PROJECT JOURNAL
+
+Place inside `<main>`.
+
+```html
+<section class="section journal-section" id="journal">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">NOTES FROM Puurehof</p>
+      <h2>A season in the making.</h2>
+    </div>
+    <span class="section-note">THE PROJECT JOURNAL</span>
+  </div>
+  <div class="journal-grid">
+    <article>
+      <span class="journal-type">CURRENT PROJECT · SAMPLE STORY</span>
+      <h3>
+        A kitchen garden,
+        <br />
+        one bed at a time.
+      </h3>
+      <p>
+        Sketching the beds, choosing the herbs, and leaving a little room for
+        happy accidents. A look at where this homegrown idea could begin.
+      </p>
+      <a class="text-link" href="current-project.html">
+        Read the journal
+        <span>↗</span>
+      </a>
+    </article>
+    <article>
+      <span class="journal-type">ON THE HORIZON · SAMPLE STORY</span>
+      <h3>
+        Making room for
+        <br />
+        the next season.
+      </h3>
+      <p>
+        A potting bench, a gathering table, and a few new things to grow. The
+        projects on our someday-soon list.
+      </p>
+      <a class="text-link" href="upcoming-project.html">
+        See what's taking shape
+        <span>↗</span>
+      </a>
+    </article>
+  </div>
+</section>
+```
+
+---
+
+## WATCH AND LEARN
+
+Place inside `<main>`.
+
+```html
+<section class="watch-section" id="watch">
+  <div class="watch-symbol" aria-hidden="true">▷</div>
+  <div>
+    <p class="eyebrow">A LITTLE COMPANY IN THE GARDEN</p>
+    <h2>Watch. Learn. Grow along.</h2>
+    <p>
+      Make room for garden tours, kitchen moments, and projects with Alaina.
+    </p>
+  </div>
+  <div class="watch-action">
+    <a
+      class="button light"
+      href="https://www.youtube.com/results?search_query=h%C3%B6fer+Alaina+gardening"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Find Puurehof on YouTube
+      <span>↗</span>
+    </a>
+    <small>YouTube search · Official channel links coming soon</small>
+  </div>
+</section>
+```
+
+---
+
+## FAVORITES
+
+Place inside `<main>`.
+
+```html
+<section class="section favorites-section" id="favorites">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">GOOD TOOLS, SIMPLE PLEASURES</p>
+      <h2>The everyday favorites.</h2>
+    </div>
+    <p>
+      A place for Alaina's tried-and-loved finds.
+      <br />
+      Sample collection · Links coming soon.
+    </p>
+  </div>
+  <div class="favorites-grid">
+    <article>
+      <span>01 / IN THE GARDEN</span>
+      <h3>A trusty pair of snips</h3>
+      <p>For gathering herbs and keeping things tidy.</p>
+      <span class="coming-soon">Affiliate link to come ↗</span>
+    </article>
+    <article>
+      <span>02 / AT THE TABLE</span>
+      <h3>The everyday linen apron</h3>
+      <p>A little flour, a little soil, a lot of character.</p>
+      <span class="coming-soon">Affiliate link to come ↗</span>
+    </article>
+    <article>
+      <span>03 / ON THE WINDOWSILL</span>
+      <h3>Simple terracotta pots</h3>
+      <p>A timeless little home for something green.</p>
+      <span class="coming-soon">Affiliate link to come ↗</span>
+    </article>
+  </div>
+  <p class="disclosure">
+    A note on links: when affiliate links are added, Puurehof may earn a
+    commission from qualifying purchases at no extra cost to you. No affiliate
+    links are active in this preview.
+  </p>
+</section>
+```
+
+---
+
+## CLOSING INVITATION
+
+Place inside `<main>`.
+
+```html
+<section class="closing">
+  <p class="eyebrow">MAKE SOMETHING OF THE SEASON</p>
+  <h2>
+    Start small.
+    <br />
+    <em>Grow something lovely.</em>
+  </h2>
+  <a class="text-link" href="#garden">
+    Back to the garden
+    <span>↑</span>
+  </a>
+</section>
+```
+
+---
+
+## ARTICLE PAGE
+
+Complete main layout; customize the sample recipe below.
+
+```html
+<main id="main-content" class="article-page">
+  
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span>/</span>
+    <a href="index.html#table">At the table</a>
+  </nav>
+  
+
+  <article>
+    
+
+    <header class="article-heading">
+      <p class="eyebrow">SAMPLE RECIPE · 20 MINUTES · SERVES 4</p>
+      <h1>The just-picked green salad</h1>
+      <p class="article-byline">Puurehof · Concept preview</p>
+    </header>
+    
+
+    <div class="article-body">
+      <p>A flexible bowl for whatever is fresh, crisp, and ready to gather.</p>
+      
+
+      <h3>Gather</h3>
+      <ul>
+        <li>6 cups washed and dried mixed salad greens</li>
+        <li>1 cucumber, thinly sliced</li>
+        <li>4 radishes, thinly sliced</li>
+        <li>A small handful of parsley or dill</li>
+        <li>3 tablespoons olive oil</li>
+        <li>1 tablespoon lemon juice</li>
+        <li>1 teaspoon Dijon mustard</li>
+        <li>Salt and pepper, to taste</li>
+      </ul>
+      
+
+      <h3>Make it</h3>
+      <ol>
+        <li>
+          Whisk the olive oil, lemon juice, mustard, salt, and pepper in a small
+          bowl.
+        </li>
+        <li>
+          Place the greens, cucumber, radishes, and herbs in a serving bowl.
+        </li>
+        <li>
+          Add a little dressing, toss gently, and taste. Add more dressing as
+          needed and serve right away.
+        </li>
+      </ol>
+      <p>
+        <small>
+          Illustrative recipe; photography is for mood and may differ from the
+          finished dish.
+        </small>
+      </p>
+    </div>
+    
+
+    <div class="article-actions">
+      <a class="text-link" href="index.html#table">
+        Back to at the table
+        <span aria-hidden="true">&#8599;</span>
+      </a>
+      <button class="text-link print-button" type="button">
+        Print this page
+      </button>
+    </div>
+  </article>
+  
+
+  <aside class="related-stories" aria-label="More from Puurehof">
+    <p class="eyebrow">KEEP EXPLORING</p>
+    <h2>A little more inspiration.</h2>
+    <div>
+      <a class="related-link" href="plant-care/kitchen-garden.html">
+        Your first kitchen garden
+        <span aria-hidden="true">&#8599;</span>
+      </a>
+      <a class="related-link" href="plant-care/basil.html">
+        Basil, from pot to pesto
+        <span aria-hidden="true">&#8599;</span>
+      </a>
+      <a class="related-link" href="plant-care/tomatoes.html">
+        A good start for tomatoes
+        <span aria-hidden="true">&#8599;</span>
+      </a>
+    </div>
+  </aside>
+</main>
+```
+
+---
+
+## FOOTER
+
+Place after `</main>`.
+
+```html
+<footer>
+  <a class="footer-logo" href="#">Puurehof</a>
+  <p>A homegrown life, one season at a time.</p>
+  <span>CONCEPT PREVIEW · SAMPLE CONTENT & PHOTOGRAPHY</span>
+</footer>
+```
+
+---
+
+## ONE DROPDOWN
+
+Copy into the header navigation; customize its label and links.
+
+```html
+<details class="nav-dropdown">
+  <summary>
+    Plants & growing
+    <span aria-hidden="true">⌄</span>
+  </summary>
+  <div class="nav-submenu mega-menu">
+    <div class="menu-column">
+      <p>Explore plants</p>
+      <a href="plant-care/tomatoes.html">Tomatoes</a>
+      <a href="plant-care/basil.html">Basil & herbs</a>
+    </div>
+
+    <div class="menu-column">
+      <p>Find your beginning</p>
+      <a href="plant-care/kitchen-garden.html">Start a kitchen garden</a>
+      <a href="plant-care/basil.html">Grow in a pot</a>
+      <a href="index.html#garden">All growing guides</a>
+    </div>
+
+    <div class="menu-column">
+      <p>From garden to table</p>
+      <a href="recipes/tomato-toast.html">Put your tomatoes to work</a>
+      <a href="recipes/herb-butter.html">Make the most of fresh herbs</a>
+    </div>
+  </div>
+</details>
+```
